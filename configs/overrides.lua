@@ -49,10 +49,15 @@ M.telescope = {
       -- disable zf filename match priority
       match_filename = false,
     },
+    media_files = {
+      filetypes = { "png", "webp", "jpg", "jpeg" },
+      find_cmd = "fdfind",
+    },
   },
   extensions_list = {
     "dap",
     -- "symbols",
+    "media_files",
     "bibtex",
   },
 }

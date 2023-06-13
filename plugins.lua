@@ -37,6 +37,7 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
+      "nvim-telescope/telescope-media-files.nvim",
       "nvim-telescope/telescope-dap.nvim",
       "nvim-telescope/telescope-symbols.nvim",
       "nvim-telescope/telescope-bibtex.nvim",

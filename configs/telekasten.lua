@@ -1,4 +1,5 @@
 local M = {
-  home = vim.fn.expand "~/zettelkasten",
+  home = "/home/asmei/zettelkasten",
+  image_subdir = "/home/asmei/zettelkasten/img",
 }
 return M
