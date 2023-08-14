@@ -26,3 +26,6 @@ vim.opt.pumheight = 30
 
 vim.opt.updatetime = 50
 vim.opt.termguicolors = true
+vim.opt.spell = true
+vim.opt.hlsearch = true
+vim.opt.spelllang = "en_us", "pl_pl"

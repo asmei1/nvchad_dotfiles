@@ -22,7 +22,10 @@ local plugins = {
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
-
+  {
+    "Civitasv/cmake-tools.nvim",
+    ft = { "cpp" },
+  },
   -- override plugin configs
   {
     "nvim-treesitter/nvim-treesitter",
@@ -58,7 +61,16 @@ local plugins = {
   },
   {
     "stevearc/overseer.nvim",
-    opts = {},
+    opts = {
+      cmake_dap_configuration = { -- debug settings for cmake
+        name = "cpp",
+        type = "codelldb",
+        request = "launch",
+        stopOnEntry = false,
+        runInTerminal = true,
+        console = "integratedTerminal",
+      },
+    },
     ft = { "cpp" },
   },
   {
@@ -74,6 +86,7 @@ local plugins = {
   {
     "stevearc/dressing.nvim",
     opts = {},
+    lazy = false,
   },
   {
     "mfussenegger/nvim-dap",

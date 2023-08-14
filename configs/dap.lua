@@ -131,6 +131,18 @@ DapConfig.mason = {
     -- see mason-nvim-dap README for more information
     handlers = {
       codelldb = function(source_name)
+        require("dap").adapters.codelldb = {
+          name = "codelldb server",
+          type = "server",
+          port = "${port}",
+          executable = {
+            command = vim.fn.stdpath "data" .. "/mason/bin/codelldb",
+            args = { "--port", "${port}" },
+
+            -- On windows you may have to uncomment this:
+            -- detached = false,
+          },
+        }
         require("dap").adapters.cpp = {
           name = "codelldb server",
           type = "server",
