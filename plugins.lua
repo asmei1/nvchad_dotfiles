@@ -47,6 +47,7 @@ local plugins = {
     },
     opts = overrides.telescope,
   },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   -- Install a plugin
   {
     "max397574/better-escape.nvim",

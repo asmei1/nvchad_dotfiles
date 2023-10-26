@@ -1,7 +1,7 @@
 local M = {}
 M.telescope = {
   defaults = {
-    path_display = { "smart" },
+    path_display = { "shorten" },
     file_sorter = require("telescope.sorters").get_fuzzy_file,
     file_ignore_patterns = { "node_modules" },
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
@@ -38,6 +38,13 @@ M.telescope = {
     },
   },
   extensions = {
+    fzf = {
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
+    },
     -- options for sorting all other items
     generic = {
       -- override default telescope generic item sorter
@@ -59,6 +66,7 @@ M.telescope = {
     -- "symbols",
     "media_files",
     "bibtex",
+    "fzf",
   },
 }
 M.treesitter = {
