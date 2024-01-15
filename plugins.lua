@@ -105,6 +105,20 @@ local plugins = {
     opts = telekastenConfig,
     event = "VimEnter",
   },
+  {
+    "HakonHarnes/img-clip.nvim",
+    event = "BufEnter",
+    opts = {
+            dir_path = "~/zettelkasten/img/",
+            show_dir_path_in_prompt = true
+    -- add options here
+    -- or leave it empty to use the default settings
+    },
+    keys = {
+    -- suggested keymap
+        { "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste clipboard image" },
+  },
+}
 }
 
 return plugins
