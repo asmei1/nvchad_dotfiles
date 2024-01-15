@@ -4,7 +4,13 @@ autocmd("VimResized", {
   pattern = "*",
   command = "tabdo wincmd =",
 })
-
+vim.cmd [[
+augroup filetypedetect
+  autocmd!
+  " Set .md files to use markdown syntax
+  autocmd BufNewFile,BufRead *.md set syntax=markdown
+augroup END
+]]
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.cmd ":set nofixendofline"
