@@ -10,7 +10,7 @@ capabilities.offsetEncoding = "utf-8"
 lspconfig["clangd"].setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { "clangd", "--header-insertion=never", "--clang-tidy", "--cross-file-rename" },
+  cmd = { "clangd", "--header-insertion=never", "--clang-tidy"},
   on_new_config = function(new_config, new_cwd)
     local status, cmake = pcall(require, "cmake-tools")
     if status then
