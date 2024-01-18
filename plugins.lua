@@ -83,6 +83,14 @@ local plugins = {
         end,
         ft = { "markdown" },
         dependencies = "tyru/open-browser.vim",
+  {
+    "stevearc/conform.nvim",
+    --  for users those who want auto-save conform + lazyloading!
+    event = "BufWritePre",
+    config = function()
+      require "custom.configs.conform"
+    end,
+  },
     },
     {
         "stevearc/dressing.nvim",
