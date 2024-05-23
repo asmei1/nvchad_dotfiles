@@ -1,37 +1,39 @@
-local autocmd = vim.api.nvim_create_autocmd
--- Auto resize panes when resizing nvim window
-autocmd("VimResized", {
-  pattern = "*",
-  command = "tabdo wincmd =",
-})
-vim.cmd [[
-augroup filetypedetect
-  autocmd!
-  " Set .md files to use markdown syntax
-  autocmd BufNewFile,BufRead *.md set syntax=markdown
-augroup END
-]]
-vim.opt.nu = true
-vim.opt.relativenumber = true
-vim.cmd ":set nofixendofline"
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
+vim.g.mapleader = " "
 
-vim.opt.smartindent = true
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-vim.opt.wrap = false
+if not vim.loop.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
+end
 
-vim.opt.errorbells = false
+vim.opt.rtp:prepend(lazypath)
 
-vim.opt.colorcolumn = "180"
+local lazy_config = require "configs.lazy"
 
-vim.opt.pumheight = 30
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+    config = function()
+      require "options"
+    end,
+  },
 
-vim.opt.updatetime = 50
-vim.opt.termguicolors = true
-vim.opt.spell = true
-vim.opt.hlsearch = true
-vim.opt.spelllang = "en_us", "pl_pl"
+  { import = "plugins" },
+}, lazy_config)
+
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
+
+require "nvchad.autocmds"
+
+vim.schedule(function()
+  require "mappings"
+end)

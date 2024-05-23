@@ -1,0 +1,4 @@
+{
+  "NvChad": { "branch": "v2.5", "commit": "e7d4ff89e92fae41da14740f844c72fb5f54c9a4" },
+  "lazy.nvim": { "branch": "main", "commit": "31ddbea7c10b6920c9077b66c97951ca8682d5c8" }
+}
