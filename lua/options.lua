@@ -37,3 +37,4 @@ vim.opt.termguicolors = true
 vim.opt.spell = true
 vim.opt.hlsearch = true
 vim.opt.spelllang = en_us
+vim.g.python3_host_prog = "/usr/bin/python3"

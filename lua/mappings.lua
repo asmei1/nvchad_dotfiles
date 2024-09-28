@@ -68,18 +68,8 @@ map("n", "<leader>x", function()
 end, { desc = "Buffer Close" })
 
 -- Comment
-map("n", "<leader>/", function()
-    require("Comment.api").toggle.linewise.current()
-end, { desc = "Comment Toggle" })
-
-map(
-    "v",
-    "<leader>/",
-    "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-    { desc = "Comment Toggle" }
-)
-
-
+map('n', '<leader>/', 'gcc', { remap = true })
+map('v', '<leader>/', 'gcc', { remap = true })
 
 -- nvimtree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Nvimtree Toggle window" })

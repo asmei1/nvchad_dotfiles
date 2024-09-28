@@ -2,7 +2,7 @@ local dapConfig = require "configs.dap"
 return {
     {
         "stevearc/conform.nvim",
-        event = "BufWritePre", -- uncomment for format on save
+        event = { "BufWritePre" },
         config = function()
             require "configs.conform"
         end,
@@ -130,4 +130,26 @@ return {
         },
         ft = { "cpp" },
     },
+    {
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+            default = {
+                relative_to_current_file = true,
+                prompt_for_file_name = false,
+                dir_path = "images",
+            },
+            filetypes = {
+                markdown = {
+                    url_encode_path = true,
+                    template = "![$CURSOR]($FILE_PATH)",
+                    download_images = false,
+                },
+            },
+        },
+        keys = {
+            -- suggested keymap
+            { "<leader>zp", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+        },
+    }
 }
