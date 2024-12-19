@@ -2,7 +2,9 @@
 
 local map = vim.keymap.set
 
-
+map('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>')
+map('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
+map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
 map("x", "<leader>p", '[["_dP]]')
 
 map("n", ";", ":", { desc = "CMD enter command mode" })

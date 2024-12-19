@@ -21,6 +21,7 @@ local options = {
         timeout_ms = 500,
         lsp_fallback = true,
     },
+    formatters = { clang_format = { command = "/usr/bin/clang-format-14" } },
 }
 
 require("conform").setup(options)
